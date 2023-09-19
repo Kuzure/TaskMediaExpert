@@ -17,7 +17,6 @@
   <ItemGroup>
     <ProjectReference Include="..\TaskMediaExpert.Application\TaskMediaExpert.Application.csproj" />
     <ProjectReference Include="..\TaskMediaExpert.Infrastructure\TaskMediaExpert.Infrastructure.csproj" />
-    <ProjectReference Include="..\TaskMediaExpert.Persistence\TaskMediaExpert.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

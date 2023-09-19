@@ -5,13 +5,11 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskMediaExpert.Api", "TaskMediaExpert.Api\TaskMediaExpert.Api.csproj", "{964568A7-5C2B-4019-8E6F-0887E0ECC34E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskMediaExpert.Persistence", "TaskMediaExpert.Persistence\TaskMediaExpert.Persistence.csproj", "{D006E401-AF48-4620-B52E-20EF70B0668B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskMediaExpert.Domain", "TaskMediaExpert.Domain\TaskMediaExpert.Domain.csproj", "{8AC25F6D-5254-4DF6-AFF5-EE0BE5CE1FEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskMediaExpert.Application", "TaskMediaExpert.Application\TaskMediaExpert.Application.csproj", "{A2F0CD6D-B92F-4BB9-A019-303F0DD49DC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskMediaExpert.Application", "TaskMediaExpert.Application\TaskMediaExpert.Application.csproj", "{A2F0CD6D-B92F-4BB9-A019-303F0DD49DC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskMediaExpert.Infrastructure", "TaskMediaExpert.Infrastructure\TaskMediaExpert.Infrastructure.csproj", "{A18DCCE6-6275-482B-88E0-B61707D911E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskMediaExpert.Infrastructure", "TaskMediaExpert.Infrastructure\TaskMediaExpert.Infrastructure.csproj", "{A18DCCE6-6275-482B-88E0-B61707D911E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{964568A7-5C2B-4019-8E6F-0887E0ECC34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{964568A7-5C2B-4019-8E6F-0887E0ECC34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{964568A7-5C2B-4019-8E6F-0887E0ECC34E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D006E401-AF48-4620-B52E-20EF70B0668B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D006E401-AF48-4620-B52E-20EF70B0668B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D006E401-AF48-4620-B52E-20EF70B0668B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D006E401-AF48-4620-B52E-20EF70B0668B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8AC25F6D-5254-4DF6-AFF5-EE0BE5CE1FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8AC25F6D-5254-4DF6-AFF5-EE0BE5CE1FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AC25F6D-5254-4DF6-AFF5-EE0BE5CE1FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
