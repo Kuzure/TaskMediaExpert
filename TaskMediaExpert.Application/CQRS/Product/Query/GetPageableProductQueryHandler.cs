@@ -22,9 +22,10 @@ namespace TaskMediaExpert.Application.CQRS.Product.Query
         public async Task<PaginationResponse<IEnumerable<ProductModel>>> Handle(GetPageableProductQuery request, CancellationToken cancellationToken)
         {
             var entities = await _productRepository.GetPageable(request.Page, request.ItemsPerPage);
+            var total = await _productRepository.GetAllAsync();
             IEnumerable<ProductModel> result = entities.Select(x => new ProductModel() { Code = x.Code, Name = x.Name, Price = x.Price });
             return new PaginationResponse<IEnumerable<ProductModel>>(result,
-                entities.Count(x => x.IsActive), request.Page, request.ItemsPerPage);
+                total.Where(x => x.IsActive).Count(), request.Page, request.ItemsPerPage);
 
         }
     }
