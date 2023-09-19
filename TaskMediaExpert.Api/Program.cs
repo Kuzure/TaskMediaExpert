@@ -32,8 +32,8 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services.AddHttpContextAccessor();
 
 
-builder.Services.AddScoped(typeof(IRepository<Product>), typeof(Repository<Product>))
-    .AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddSingleton(typeof(IRepository<>), typeof(Repository<>))
+    .AddSingleton<IProductRepository, ProductRepository>();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddScoped<IRequestHandler<AddProductCommand, Product>, AddProductCommandHandler>();
