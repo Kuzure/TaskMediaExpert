@@ -8,6 +8,7 @@ using TaskMediaExpert.Application.CQRS.Product.Command;
 using TaskMediaExpert.Domain.Entity;
 using TaskMediaExpert.Application.CQRS.Product.Query;
 using TaskMediaExpert.Infrastructure.Models;
+using TaskMediaExpert.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +39,7 @@ builder.Services.AddSingleton(typeof(IRepository<>), typeof(Repository<>))
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.AddScoped<IRequestHandler<AddProductCommand, Product>, AddProductCommandHandler>();
 builder.Services.AddScoped<IRequestHandler<GetAllProductQuery, IEnumerable<ProductModel>>, GetAllProductQueryHandler>();
+builder.Services.AddScoped<IRequestHandler<GetPageableProductQuery, PaginationResponse<IEnumerable<ProductModel>>>, GetPageableProductQueryHandler>();
 
 var app = builder.Build();
 

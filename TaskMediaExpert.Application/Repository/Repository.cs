@@ -17,5 +17,10 @@ namespace TaskMediaExpert.Application.Repository
         {
             return Task.FromResult(_entities.AsEnumerable());
         }
+
+        public virtual Task<IEnumerable<TEntity>> GetPageable(int page, int itemsPerPage)
+        {
+            return Task.FromResult(_entities.Skip((page - 1) * itemsPerPage).Take(itemsPerPage).AsEnumerable());
+        }
     }
 }

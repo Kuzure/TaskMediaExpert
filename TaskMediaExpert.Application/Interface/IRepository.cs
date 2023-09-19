@@ -6,5 +6,6 @@ namespace TaskMediaExpert.Application.Interface
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<TEntity> AddAsync(TEntity entity);
+        Task<IEnumerable<TEntity>> GetPageable(int page, int itemsPerPage);
     }
 }

@@ -27,9 +27,9 @@ namespace TaskMediaExpert.Api.Controllers
         public async Task<ActionResult> GetAllProductList([FromQuery] GetAllProductQuery query) =>
             await ExecuteQuery(async () => await Mediator.Send(query));
 
-/*        [HttpGet("pageable")]
-        [ProducesResponseType(typeof(PaginationResponse<IEnumerable<ProductListModel>>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult> GetPageableProductList([FromQuery] GetProductListQuery query) =>
-            await ExecuteQuery(async () => await Mediator.Send(query));*/
+        [HttpGet("pageable")]
+        [ProducesResponseType(typeof(PaginationResponse<IEnumerable<ProductModel>>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult> GetPageableProductList([FromQuery] GetPageableProductQuery query) =>
+            await ExecuteQuery(async () => await Mediator.Send(query));
     }
 }
