@@ -1,7 +1,13 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
-using TaskMediaExpert.Persistence;
+using TaskMediaExpert.Application.Interface;
+using TaskMediaExpert.Application.Repository;
+using MediatR;
+using System.Reflection;
+using TaskMediaExpert.Application.CQRS.Product.Command;
+using TaskMediaExpert.Domain.Entity;
+using TaskMediaExpert.Application.CQRS.Product.Query;
+using TaskMediaExpert.Infrastructure.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +20,8 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     options.JsonSerializerOptions.WriteIndented = true;
 });
 
+builder.Services.AddHttpContextAccessor();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
@@ -21,9 +29,15 @@ builder.Services.AddSwaggerGen(option =>
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "TaskMediaExpert", Version = "v1" });
 });
 
+builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddDbContext<TaskMediaExpertDbContext>(option => option.UseSqlite(builder.Configuration.GetConnectionString("TaskMediaExpertDb"),
-    x => x.MigrationsAssembly("TaskMediaExpert.Persistence")));
+
+builder.Services.AddScoped(typeof(IRepository<Product>), typeof(Repository<Product>))
+    .AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+builder.Services.AddScoped<IRequestHandler<AddProductCommand, Product>, AddProductCommandHandler>();
+builder.Services.AddScoped<IRequestHandler<GetAllProductQuery, IEnumerable<ProductModel>>, GetAllProductQueryHandler>();
 
 var app = builder.Build();
 
