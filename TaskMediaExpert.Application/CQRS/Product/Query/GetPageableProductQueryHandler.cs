@@ -23,7 +23,7 @@ namespace TaskMediaExpert.Application.CQRS.Product.Query
         {
             var entities = await _productRepository.GetPageable(request.Page, request.ItemsPerPage);
             var total = await _productRepository.GetAllAsync();
-            IEnumerable<ProductModel> result = entities.Select(x => new ProductModel() { Code = x.Code, Name = x.Name, Price = x.Price });
+            IEnumerable<ProductModel> result = entities.Select(x => new ProductModel() { Id = x.Id, Code = x.Code, Name = x.Name, Price = x.Price });
             return new PaginationResponse<IEnumerable<ProductModel>>(result,
                 total.Where(x => x.IsActive).Count(), request.Page, request.ItemsPerPage);
 

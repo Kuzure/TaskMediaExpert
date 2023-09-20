@@ -22,7 +22,7 @@ namespace TaskMediaExpert.Application.CQRS.Product.Query
         {
             var entities = await _productRepository.GetAllAsync();
 
-            IEnumerable<ProductModel> products = entities.Select(x => new ProductModel() { Code = x.Code, Name = x.Name, Price = x.Price });
+            IEnumerable<ProductModel> products = entities.Select(x => new ProductModel() { Id = x.Id, Code = x.Code, Name = x.Name, Price = x.Price });
             return products;
 
         }
